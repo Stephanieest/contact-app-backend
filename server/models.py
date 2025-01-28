@@ -7,7 +7,7 @@ class User(db.Model):
     username = db.Column(db.String(255), unique=True, nullable=False)
     email = db.Column(db.String(255), unique=True, nullable=False)
     contacts = db.relationship('Contact', backref='user', lazy=True)
-    favourites = db.relationship('Favourite', backref-'user', lazy=True)
+    favourites = db.relationship('Favourite', backref='user', lazy=True)
 
 class Contact(db.Model):
     id = db.Column(db.Integer, primary_key=True)
