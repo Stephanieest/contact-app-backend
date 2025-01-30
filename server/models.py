@@ -7,13 +7,13 @@ class User(db.Model):
     username = db.Column(db.String(255), unique=True, nullable=False)
     email = db.Column(db.String(255), unique=True, nullable=False)
     contacts = db.relationship('Contact', backref='user', lazy=True)
-    favourites = db.relationship('Favourite', backref='user', lazy=True)
+    favorites = db.relationship('Favorite', backref='user', lazy=True)
 
 class Contact(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
     phone = db.Column(db.String(20), unique=True, nullable=False)
-    email = db.Column(db.String(255),unique=True , nullable=False)
+    email = db.Column(db.String(255), unique=True, nullable=False)
     address = db.Column(db.Text, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
@@ -26,8 +26,8 @@ class Contact(db.Model):
             'address': self.address,
             'user_id': self.user_id
         }
-    
-class Favourite(db.Model):
+
+class Favorite(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     contact_id = db.Column(db.Integer, db.ForeignKey('contact.id'), nullable=False)
