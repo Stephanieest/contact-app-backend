@@ -35,7 +35,7 @@ source venv/bin/activate  # On Windows use venv\Scripts\activate
 Install the dependencies:
 
 ```sh
-pip install -r requirements.txt
+pipenv install Flask flask_sqlalchemy flask_migrate flask_cors
 ```
 
 ### Database Setup
