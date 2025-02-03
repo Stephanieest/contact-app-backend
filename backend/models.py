@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 class User(db.Model):
+    __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -15,9 +16,10 @@ class User(db.Model):
         }
 
 class Contact(db.Model):
+    __tablename__ = 'contact'  # Added tablename here
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
-    phone = db.Column(db.String(20), nullable=False)
+    phone = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(120), nullable=False)
     address = db.Column(db.String(200), nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
@@ -33,6 +35,7 @@ class Contact(db.Model):
         }
 
 class Favorite(db.Model):
+    __tablename__ = 'favorite'  # Added tablename here
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     contact_id = db.Column(db.Integer, db.ForeignKey('contact.id'), nullable=False)
