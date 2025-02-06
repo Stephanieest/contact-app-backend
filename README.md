@@ -7,6 +7,9 @@ This is the backend for the Contact App, built with Flask. It provides APIs to m
 - Manage contacts (create, read, update, delete)
 - Manage favorite contacts (create, read, delete)
 
+[Deployed backend API](http://127.0.0.1:8000/)
+
+
 ## Requirements
 - Python 3.8+
 - Flask
